@@ -1,19 +1,22 @@
 <template lang="html">
   <div>
     <h1>BrewDog Beers</h1>
-    <beer-dropdown :beers="beers" />
+    <beer-dropdown :beers="beers"></beer-dropdown>
+    <beer-detail :beer="selectedBeer"></beer-detail>
   </div>
 </template>
 
 <script>
 
 import BeersDropDown from './components/BeersDropDown.vue'
+import BeerDetail from './components/BeerDetail.vue'
 import { eventBus } from './main.js'
 
 export default {
   data(){
     return {
-      beers: []
+      beers: [],
+      selectedBeer: null
     }
   },
   mounted(){
@@ -26,7 +29,8 @@ export default {
     })
   },
   components: {
-    "beer-dropdown": BeersDropDown
+    "beer-dropdown": BeersDropDown,
+    "beer-detail": BeerDetail
   }
 }
 </script>

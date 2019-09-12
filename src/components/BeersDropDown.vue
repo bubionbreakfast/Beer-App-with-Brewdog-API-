@@ -20,7 +20,7 @@ export default {
   props: ["beers"],
   methods: {
     handleSelect(){
-      eventBus.$emit('beer-selected', this.beer)
+      eventBus.$emit('beer-selected', this.selectedBeer)
     }
   }
 }
