@@ -1,7 +1,11 @@
 <template lang="html">
   <div v-if="beer">
-    <p>{{ beer.name }}</p>
-    <p>{{ beer.abv }}</p>
+    <ul>
+      <li>Name: {{ beer.name }}</li>
+      <li>ABV: {{ beer.abv }}</li>
+      <li>Description: {{beer.description}}</li>
+    </ul>
+    <img :src="beer.image_url" :alt="beer.name">
   </div>
 </template>
 
