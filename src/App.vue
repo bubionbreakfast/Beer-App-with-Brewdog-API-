@@ -3,6 +3,7 @@
     <h1>BrewDog Beers</h1>
     <beer-dropdown :beers="beers"></beer-dropdown>
     <beer-detail :beer="selectedBeer"></beer-detail>
+    <fav-list :favBeers="favBeers"></fav-list>
   </div>
 </template>
 
@@ -10,13 +11,16 @@
 
 import BeersDropDown from './components/BeersDropDown.vue'
 import BeerDetail from './components/BeerDetail.vue'
+import FavList from './components/FavList.vue'
+
 import { eventBus } from './main.js'
 
 export default {
   data(){
     return {
       beers: [],
-      selectedBeer: null
+      selectedBeer: null,
+      favBeers: []
     }
   },
   mounted(){
@@ -24,13 +28,19 @@ export default {
     .then(res => res.json())
     .then(beers => this.beers = beers)
 
+    eventBus.$on('fav-list', (beer) => {
+      this.favBeers.push(beer)
+    })
+
     eventBus.$on('beer-selected', (beer) => {
       this.selectedBeer = beer
     })
   },
   components: {
     "beer-dropdown": BeersDropDown,
-    "beer-detail": BeerDetail
+    "beer-detail": BeerDetail,
+    "fav-list": FavList
+
   }
 }
 </script>
