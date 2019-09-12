@@ -2,16 +2,14 @@
   <div id="detailWrapper">
     <div v-if="beer">
       <ul class="detailData">
-        <li>Name: {{ beer.name }}</li>
-        <li>ABV: {{ beer.abv }}</li>
-        <li>Description: {{beer.description}}</li>
+        <h4>Name: {{ beer.name }}</h4>
+        <div>
+          <img :src="beer.image_url" :alt="beer.name">
+        </div>
+        <h5>ABV: {{ beer.abv }}</h5>
+        <p>Description: {{beer.description}}</p>
       </ul>
-      <div>
-        <img :src="beer.image_url" :alt="beer.name">
-      </div>
-
       <beer-fav :beer="beer"></beer-fav>
-
     </div>
   </div>
 </template>
@@ -32,20 +30,26 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 img {
-  height: 300px;
+  height: 250px;
 }
 #detailWrapper {
 /* display: flex; */
 flex-direction: row;
 box-sizing: border-box;
+border: 1px solid black;
+border-radius: 10px;
 background: #cbc8b9;
 padding: 10px;
 height: 500px;
+font-family: sans-serif;
 
 }
 
 .detailData {
   width: 60%;
+  /* font-family: 'Arizonia'; */
+
 }
 </style>

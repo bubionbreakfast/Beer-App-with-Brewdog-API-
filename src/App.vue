@@ -49,14 +49,25 @@ export default {
 </script>
 
 <style lang="css" scoped>
+body {
+  background-color: #a0929e;
+  font-family: 'Arizonia';
+
+
+}
 h1 {
   text-align: center;
-  color: #333;
+  color: #a0929e;
+  font-family: 'Arizonia';
+  font-size: 6vh;
+
 }
 .main-container {
   display: flex;
   justify-content: space-between;
   width: 80%;
   margin: 0 auto;
+  font-family: 'Arizonia';
+
 }
 </style>
