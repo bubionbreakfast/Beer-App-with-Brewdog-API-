@@ -1,9 +1,12 @@
 <template lang="html">
   <div>
     <h1>BrewDog Beers</h1>
+
+    <data class="main-container"></data>
+    <fav-list :favBeers="favBeers"></fav-list>
     <beer-dropdown :beers="beers"></beer-dropdown>
     <beer-detail :beer="selectedBeer"></beer-detail>
-    <fav-list :favBeers="favBeers"></fav-list>
+  </div>
   </div>
 </template>
 
@@ -46,4 +49,14 @@ export default {
 </script>
 
 <style lang="css" scoped>
+h1 {
+  text-align: center;
+  color: #333;
+}
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
 </style>
